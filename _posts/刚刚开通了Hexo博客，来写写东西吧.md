@@ -1,6 +1,5 @@
 ---
 title: 刚刚开通了Hexo博客，来写写东西吧!
-description: 屑作开头
 date: 2019-01-12
 tags: 一枚咸蛋
 ---
