@@ -6,7 +6,7 @@
   <link href="https://moshian90s.github.io/atom.xml" rel="self"/>
   
   <link href="https://moshian90s.github.io/"/>
-  <updated>2022-11-04T14:34:58.754Z</updated>
+  <updated>2022-11-04T15:38:04.432Z</updated>
   <id>https://moshian90s.github.io/</id>
   
   <author>
@@ -17,15 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>浏览器性能优化</title>
+    <title>Web Performance Optimization</title>
     <link href="https://moshian90s.github.io/2022/11/04/browser-optimization/"/>
     <id>https://moshian90s.github.io/2022/11/04/browser-optimization/</id>
     <published>2022-11-04T14:29:34.000Z</published>
-    <updated>2022-11-04T14:34:58.754Z</updated>
+    <updated>2022-11-04T15:38:04.432Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h1><p><a href="https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ">Cache triple factors - Wechat Bugly</a></p><p><em>HTTP authoritative guideline Ch.Cache</em></p><p>@see also: REST cache, difference between <code>F5</code> and <code>Ctrl+F5</code></p><h1 id="Lazy-Loading"><a href="#Lazy-Loading" class="headerlink" title="Lazy Loading"></a>Lazy Loading</h1><p> <a href="https://web.dev/i18n/en/lazy-loading/">Use lazy-loading to improve loading speed (web.dev)</a> </p><p> <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading">Lazy loading - Web performance | MDN (mozilla.org)</a> </p><h1 id="Web-Rendering-Pipeline"><a href="#Web-Rendering-Pipeline" class="headerlink" title="Web Rendering Pipeline"></a>Web Rendering Pipeline</h1><p><a href="https://developer.chrome.com/blog/inside-browser-part1/">Inside look at modern web browser (part 1) - Chrome Developers</a> </p><p>@see also: lifecycle of a page</p><p>@see also: 从键入URL到显示页面的过程</p><p>@see also: HTTPS</p><p>@see also: structure of browser</p><h1 id="Webpack-Code-Split-Package"><a href="#Webpack-Code-Split-Package" class="headerlink" title="Webpack (Code Split/Package)"></a>Webpack (Code Split/Package)</h1><p> <a href="https://github.com/febobo/web-interview/issues/131">面试官：说说如何借助webpack来优化前端性能？ · Issue #131 · febobo/web-interview (github.com)</a> </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Cache&quot;&gt;&lt;a href=&quot;#Cache&quot; class=&quot;headerlink&quot; title=&quot;Cache&quot;&gt;&lt;/a&gt;Cache&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ</summary>
+      
     
     
     
     
+    <category term="front-end" scheme="https://moshian90s.github.io/tags/front-end/"/>
     
   </entry>
   
