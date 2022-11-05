@@ -103,13 +103,13 @@
 <li><p>Largest Contentful Paint image was not lazily loaded </p>
 <p>Above-the-fold images that are lazily loaded render later in the page lifecycle, which can delay the largest contentful paint. <a target="_blank" rel="noopener" href="https://web.dev/lcp-lazy-loading/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
 </li>
-<li><p>Avoids <code>document.write()</code> </p>
+<li><p>Avoids <code>document.write()</code></p>
 <p>For users on slow connections, external scripts dynamically injected via <code>document.write()</code> can delay page load by tens of seconds. <a target="_blank" rel="noopener" href="https://web.dev/no-document-write/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
 </li>
 <li><p>Image elements have explicit <code>width</code> and <code>height</code> </p>
 <p>Set an explicit width and height on image elements to reduce layout shifts and improve CLS. <a target="_blank" rel="noopener" href="https://web.dev/optimize-cls/?utm_source=lighthouse&utm_medium=devtools#images-without-dimensions">Learn more</a> <code>CLS</code> </p>
 </li>
-<li><p>Has a <code>&lt;meta name=&#39;viewport&#39;&gt;</code> tag with <code>width</code> or <code>initial-scale</code> </p>
+<li><p>Has a <code>&lt;meta name=&quot;viewport&quot;&gt;</code> tag with <code>width</code> or <code>initial-scale</code> </p>
 <p>A  <code>&lt;meta name=&quot;viewport&quot;&gt;</code> not only optimizes your app for mobile screen sizes, but also prevents <a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?utm_source=lighthouse&utm_medium=devtools">a 300 millisecond delay to user input</a>. <a target="_blank" rel="noopener" href="https://web.dev/viewport/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. <code>TBT</code> </p>
 </li>
 <li><p>Avoids <code>unload</code> event listeners</p>
