@@ -1,8 +1,135 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>Web Performance Optimization │ bigfish's writings😗</title><link rel="stylesheet" href="/css/oasis.css"><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="bigfish's writings😗" type="application/atom+xml">
-</head><body><div id="content"><h1 id="title">Web Performance Optimization</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2022-11-04T14:29:34.000Z">2022-11-04</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><p>links collected to be reviewed for interviews.📎</p>
-<h1 id="Cache"><a href="#Cache" class="headerlink" title="Cache"></a>Cache</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ">Cache triple factors - Wechat Bugly</a></p>
+</head><body><div id="content"><h1 id="title">Web Performance Optimization</h1><div id="menu-outer"><nav id="menu-inner"><a id="menu-back" href="javascript:history.back()">Back</a><time datetime="2022-11-04T14:29:34.000Z">2022-11-04</time></nav></div><div id="content-outer"><div id="content-inner"><article id="post"><p>📎what is the definition of Web Performance?</p>
+<blockquote>
+<p> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Performance">Web 性能 | MDN (mozilla.org)</a> </p>
+</blockquote>
+<h1 id="Lighthouse-Performance-Index"><a href="#Lighthouse-Performance-Index" class="headerlink" title="Lighthouse Performance Index"></a>Lighthouse Performance Index</h1><ol>
+<li><p>Eliminate render-blocking resources</p>
+<p>  <a target="_blank" rel="noopener" href="https://web.dev/render-blocking-resources/?utm_source=lighthouse&utm_medium=devtools">Eliminate render-blocking resources (web.dev)</a> <code>FCP</code>, <code>LCP</code></p>
+</li>
+<li><p>Does not use passive listeners to improve scrolling performance</p>
+<p>  <a target="_blank" rel="noopener" href="https://web.dev/uses-passive-event-listeners/?utm_source=lighthouse&utm_medium=devtools">使用被动监听器优化滚动体验 (web.dev)</a> </p>
+</li>
+<li><p>Avoid an excessive DOM size</p>
+<p> A large DOM will increase memory usage, cause longer <a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/rendering/reduce-the-scope-and-complexity-of-style-calculations?utm_source=lighthouse&utm_medium=devtools">style calculations</a>, and produce costly <a target="_blank" rel="noopener" href="https://developers.google.com/speed/articles/reflow?utm_source=lighthouse&utm_medium=devtools">layout reflows</a>. <a target="_blank" rel="noopener" href="https://web.dev/dom-size/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>.<code>TBT</code> </p>
+</li>
+<li><p>Serve static assets with an efficient cache policy</p>
+<p> A long cache lifetime can speed up repeat visits to your page. <a target="_blank" rel="noopener" href="https://web.dev/uses-long-cache-ttl/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
+</li>
+<li><p>Minimize main-thread work</p>
+<p> Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. <a target="_blank" rel="noopener" href="https://web.dev/mainthread-work-breakdown/?utm_source=lighthouse&utm_medium=devtools">Learn more</a> <code>TBT</code></p>
+</li>
+<li><p>Avoid chaining critical requests</p>
+<p> The Critical Request Chains below show you what resources are loaded with a high priority. Consider reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load. <a target="_blank" rel="noopener" href="https://web.dev/critical-request-chains/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. <code>FCP</code> <code>LCP</code> </p>
+</li>
+<li><p>User Timing marks and measures</p>
+<p> Consider instrumenting your app with the User Timing API to measure your app’s real-world performance during key user experiences. <a target="_blank" rel="noopener" href="https://web.dev/user-timings/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
+</li>
+<li><p>Keep request counts low and transfer sizes small</p>
+<p> To set budgets for the quantity and size of page resources, add a budget.json file. <a target="_blank" rel="noopener" href="https://web.dev/use-lighthouse-for-performance-budgets/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
+</li>
+<li><p>Largest Contentful Paint element</p>
+<p>  This is the largest contentful element painted within the viewport. <a target="_blank" rel="noopener" href="https://web.dev/lighthouse-largest-contentful-paint/?utm_source=lighthouse&utm_medium=devtools">Learn More</a> <code>LCP</code> </p>
+</li>
+<li><p>Avoid large layout shifts</p>
+<p> <a target="_blank" rel="noopener" href="https://web.dev/cls/">Cumulative Layout Shift 累积布局偏移 (CLS) (web.dev)</a> </p>
+</li>
+<li><p>Avoid long main-thread tasks </p>
+<p> Lists the longest tasks on the main thread, useful for identifying worst contributors to input delay. <a target="_blank" rel="noopener" href="https://web.dev/long-tasks-devtools/?utm_source=lighthouse&utm_medium=devtools">Learn more</a> <code>TBT</code> </p>
+</li>
+<li><p>Avoid non-composited animations </p>
+<p>Animations which are not composited can be janky and increase CLS. <a target="_blank" rel="noopener" href="https://web.dev/non-composited-animations?utm_source=lighthouse&utm_medium=devtools">Learn more</a> <code>CLS</code> </p>
+</li>
+<li><p>Properly size images</p>
+<p>Serve images that are appropriately-sized to save cellular data and improve load time. <a target="_blank" rel="noopener" href="https://web.dev/uses-responsive-images/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
+</li>
+<li><p>Defer offscreen images</p>
+<p>Consider lazy-loading offscreen and hidden images after all critical resources have finished loading to lower time to interactive. <a target="_blank" rel="noopener" href="https://web.dev/offscreen-images/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
+</li>
+<li><p>Minify CSS/JavaScript</p>
+<p>Minifying CSS files can reduce network payload sizes. <a target="_blank" rel="noopener" href="https://web.dev/unminified-css/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. <code>FCP</code> <code>LCP</code> </p>
+</li>
+<li><p>Reduce unused CSS/JavaScript</p>
+<p>Reduce unused rules from stylesheets and defer CSS not used for above-the-fold content to decrease bytes consumed by network activity. <a target="_blank" rel="noopener" href="https://web.dev/unused-css-rules/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>.<code>FCP</code> <code>LCP</code> </p>
+</li>
+<li><p>Efficiently encode images</p>
+<p>Optimized images load faster and consume less cellular data. <a target="_blank" rel="noopener" href="https://web.dev/uses-optimized-images/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
+</li>
+<li><p>Serve images in Webp (next-gen formats)</p>
+<p>Image formats like WebP and AVIF often provide better compression than PNG or JPEG, which means faster downloads and less data consumption. <a target="_blank" rel="noopener" href="https://web.dev/uses-webp-images/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
+</li>
+<li><p>Enable text compression</p>
+<p>Text-based resources should be served with compression (gzip, deflate or brotli) to minimize total network bytes. <a target="_blank" rel="noopener" href="https://web.dev/uses-text-compression/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. <code>FCP</code> <code>LCP</code> </p>
+</li>
+<li><p>Pre-connect to required origins</p>
+<p>Consider adding <code>preconnect</code> or <code>dns-prefetch</code> resource hints to establish early connections to important third-party origins. <a target="_blank" rel="noopener" href="https://web.dev/uses-rel-preconnect/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>.<code>FCP</code> <code>LCP</code> </p>
+</li>
+<li><p>Initial server response time was short</p>
+<p>Keep the server response time for the main document short because all other requests depend on it. <a target="_blank" rel="noopener" href="https://web.dev/time-to-first-byte/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>.<code>FCP</code> <code>LCP</code> </p>
+</li>
+<li><p>Avoid multiple page redirects</p>
+<p>Redirects introduce additional delays before the page can be loaded. <a target="_blank" rel="noopener" href="https://web.dev/redirects/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>.<code>FCP</code> <code>LCP</code> </p>
+</li>
+<li><p>Use HTTP/2</p>
+<p>HTTP/2 offers many benefits over HTTP/1.1, including binary headers and multiplexing. <a target="_blank" rel="noopener" href="https://web.dev/uses-http2/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
+</li>
+<li><p>User video formats for animated content</p>
+<p>Large GIFs are inefficient for delivering animated content. Consider using MPEG4/WebM videos for animations and PNG/WebP for static images instead of GIF to save network bytes. <a target="_blank" rel="noopener" href="https://web.dev/efficient-animated-content/?utm_source=lighthouse&utm_medium=devtools">Learn more</a> <code>LCP</code> </p>
+</li>
+<li><p>Remove duplicate modules in JavaScript bundles </p>
+<p>Remove large, duplicate JavaScript modules from bundles to reduce unnecessary bytes consumed by network activity. <code>TBT</code> </p>
+</li>
+<li><p>Avoid serving legacy JavaScript to modern browsers</p>
+<p>Polyfills and transforms enable legacy browsers to use new JavaScript features. However, many aren’t necessary for modern browsers. For your bundled JavaScript, adopt a modern script deployment strategy using module/nomodule feature detection to reduce the amount of code shipped to modern browsers, while retaining support for legacy browsers. <a target="_blank" rel="noopener" href="https://philipwalton.com/articles/deploying-es2015-code-in-production-today/">Learn More</a> <code>TBT</code> </p>
+</li>
+<li><p>Preload Largest Contentful Paint image </p>
+<p>Preload the image used by the LCP element in order to improve your LCP time. <a target="_blank" rel="noopener" href="https://web.dev/optimize-lcp/?utm_source=lighthouse&utm_medium=devtools#preload-important-resources">Learn more</a>. <code>LCP</code> </p>
+</li>
+<li><p>Avoids enormous network payloads </p>
+<p>Large network payloads cost users real money and are highly correlated with long load times. <a target="_blank" rel="noopener" href="https://web.dev/total-byte-weight/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. <code>LCP</code> </p>
+</li>
+<li><p>JavaScript execution time</p>
+<p>Consider reducing the time spent parsing, compiling, and executing JS. You may find delivering smaller JS payloads helps with this. <a target="_blank" rel="noopener" href="https://web.dev/bootup-time/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. <code>TBT</code> </p>
+</li>
+<li><p>All text remains visible during webfont loads </p>
+<p>Leverage the font-display CSS feature to ensure text is user-visible while webfonts are loading. <a target="_blank" rel="noopener" href="https://web.dev/font-display/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>.<code>FCP</code> <code>LCP</code> </p>
+</li>
+<li><p>Minimize third-party usage </p>
+<p>Third-party code can significantly impact load performance. Limit the number of redundant third-party providers and try to load third-party code after your page has primarily finished loading. <a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. <code>TBT</code> </p>
+</li>
+<li><p>Lazy load third-party resources with facades </p>
+<p> Some third-party embeds can be lazy loaded. Consider replacing them with a facade until they are required. <a target="_blank" rel="noopener" href="https://web.dev/third-party-facades/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. <code>TBT</code> </p>
+</li>
+<li><p>Largest Contentful Paint image was not lazily loaded </p>
+<p>Above-the-fold images that are lazily loaded render later in the page lifecycle, which can delay the largest contentful paint. <a target="_blank" rel="noopener" href="https://web.dev/lcp-lazy-loading/?utm_source=lighthouse&utm_medium=devtools">Learn more</a>. </p>
+</li>
+<li><p> Avoids <code>document.write()</code> </p>
+</li>
+</ol>
+<pre><code>For users on slow connections, external scripts dynamically injected via `document.write()` can delay page load by tens of seconds. [Learn more](https://web.dev/no-document-write/?utm_source=lighthouse&amp;utm_medium=devtools). 
+</code></pre>
+<ol start="35">
+<li> Image elements have explicit <code>width</code> and <code>height</code> </li>
+</ol>
+<pre><code>Set an explicit width and height on image elements to reduce layout shifts and improve CLS. [Learn more](https://web.dev/optimize-cls/?utm_source=lighthouse&amp;utm_medium=devtools#images-without-dimensions) `CLS` 
+</code></pre>
+<ol start="36">
+<li> Has a <code>&lt;meta name=&#39;viewport&#39;&gt;</code> tag with <code>width</code> or <code>initial-scale</code> </li>
+</ol>
+<pre><code>A `&lt;meta name=&quot;viewport&quot;&gt;` not only optimizes your app for mobile screen sizes, but also prevents [a 300 millisecond delay to user input](https://developers.google.com/web/updates/2013/12/300ms-tap-delay-gone-away?utm_source=lighthouse&amp;utm_medium=devtools). [Learn more](https://web.dev/viewport/?utm_source=lighthouse&amp;utm_medium=devtools). `TBT` 
+</code></pre>
+<ol start="37">
+<li><p>Avoids <code>unload</code> event listeners</p>
+<p>The <code>unload</code> event does not fire reliably and listening for it can prevent browser optimizations like the Back-Forward Cache. Use <code>pagehide</code> or <code>visibilitychange</code> events instead. <a target="_blank" rel="noopener" href="https://web.dev/bfcache/?utm_source=lighthouse&utm_medium=devtools#never-use-the-unload-event">Learn more</a> </p>
+</li>
+</ol>
+<p>some ideas are inferred or epitomized based upon the book <em>high performance website building</em> (old but classical) </p>
+<h1 id="Cache-minimize-the-http-request-counts"><a href="#Cache-minimize-the-http-request-counts" class="headerlink" title="Cache (minimize the http request counts)"></a>Cache (minimize the http request counts)</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ">Cache triple factors - Wechat Bugly</a></p>
 <p><em>HTTP authoritative guideline Ch.Cache</em></p>
+<p>DNS prefetch</p>
+<p> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/link">：外部资源链接元素 - HTML（超文本标记语言） | MDN (mozilla.org)</a> </p>
 <p>@see also: REST cache, difference between <code>F5</code> and <code>Ctrl+F5</code></p>
+<p>@see also: prevent Redirect request</p>
 <h1 id="Lazy-Loading"><a href="#Lazy-Loading" class="headerlink" title="Lazy Loading"></a>Lazy Loading</h1><p> <a target="_blank" rel="noopener" href="https://web.dev/i18n/en/lazy-loading/">Use lazy-loading to improve loading speed (web.dev)</a> </p>
 <p> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading">Lazy loading - Web performance | MDN (mozilla.org)</a> </p>
 <h1 id="Web-Rendering-Pipeline"><a href="#Web-Rendering-Pipeline" class="headerlink" title="Web Rendering Pipeline"></a>Web Rendering Pipeline</h1><p><a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/inside-browser-part1/">Inside look at modern web browser (part 1) - Chrome Developers</a> </p>
@@ -10,5 +137,6 @@
 <p>@see also: 从键入URL到显示页面的过程</p>
 <p>@see also: HTTPS</p>
 <p>@see also: structure of browser</p>
-<h1 id="Webpack-Code-Split-Package"><a href="#Webpack-Code-Split-Package" class="headerlink" title="Webpack (Code Split/Package)"></a>Webpack (Code Split/Package)</h1><p> <a target="_blank" rel="noopener" href="https://github.com/febobo/web-interview/issues/131">面试官：说说如何借助webpack来优化前端性能？ · Issue #131 · febobo/web-interview (github.com)</a> </p>
+<h1 id="Webpack-Code-Split-Package"><a href="#Webpack-Code-Split-Package" class="headerlink" title="Webpack (Code Split/Package)"></a>Webpack (Code Split/Package)</h1><p>make the structure of code project concise</p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/febobo/web-interview/issues/131">面试官：说说如何借助webpack来优化前端性能？ · Issue #131 · febobo/web-interview (github.com)</a> </p>
 <div class="post-tags"><a class="post-tag-link" href="/tags/front-end/" rel="tag">#front-end</a>, <a class="post-tag-link" href="/tags/performance/" rel="tag">#performance</a></div></article><div id="paginator"></div></div></div><div id="bottom-outer"><div id="bottom-inner"><hr><div><div><a>2022@ </a><a href="/atom.xml"><img src="/assets/rss.png"></a></div><div id="hexo"><a>Powered by&nbsp</a><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><a>&nbsp&&nbsp</a><a target="_blank" rel="noopener" href="https://github.com/qiantao94/hexo-theme-oasis">Oasis</a></div></div></div></div></div></body><script src="/js/oasis.js"></script></html>
