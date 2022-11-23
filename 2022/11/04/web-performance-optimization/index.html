@@ -138,9 +138,18 @@
 <p> @see also:  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload#scripting_and_preloads">Link types: preload - HTML: HyperText Markup Language | MDN (mozilla.org)</a> </p>
 </li>
 <li><p>utilizing composition procedure</p>
-<p> @see also:  Avoid non-composited animations, passive event listeners,  Avoid an excessive DOM size </p>
+<p> @see also:  Avoid non-composited animations, passive event listeners,  Avoid an excessive DOM size</p>
 </li>
 </ol>
+<h2 id="particular-API-to-evaluate-the-performance"><a href="#particular-API-to-evaluate-the-performance" class="headerlink" title="particular API to evaluate the performance"></a>particular API to evaluate the performance</h2><p>@keyword: <code>lighthouse</code>, <code>puppeteer</code>, <code>performance API</code></p>
+<p><a target="_blank" rel="noopener" href="https://blog.logrocket.com/how-to-practically-use-performance-api-to-measure-performance/">How to practically use Performance API to measure performance - LogRocket Blog</a> </p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> p <span class="token operator">=</span> window<span class="token punctuation">.</span>performance<span class="token punctuation">.</span><span class="token function">getEntries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+performance<span class="token punctuation">.</span>navigation<span class="token punctuation">.</span>redirectCount	<span class="token comment">//redirect count</span>
+p<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">e</span> <span class="token operator">=></span> e<span class="token punctuation">.</span>initiatorType <span class="token operator">==</span> <span class="token string">'script'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length	<span class="token comment">//js resource</span>
+<span class="token comment">/**
+ * ['script', 'css', 'xmlhttprequest', 'img', 'resource']
+ */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="relevant-links"><a href="#relevant-links" class="headerlink" title="relevant links"></a>relevant links</h1><p><a target="_blank" rel="noopener" href="http://www.alloyteam.com/2020/01/14184/">如何进行 web 性能监控？ | AlloyTeam</a></p>
 <p><a target="_blank" rel="noopener" href="https://web.dev/animations-guide">How to create high-performance CSS animations</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2016/12/gpu-animation-doing-it-right/">CSS GPU Animation: Doing It Right — Smashing Magazine</a> </p>
