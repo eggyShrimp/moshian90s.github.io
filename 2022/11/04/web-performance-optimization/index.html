@@ -3,7 +3,7 @@
 <blockquote>
 <p> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Performance">Web 性能 | MDN (mozilla.org)</a> </p>
 </blockquote>
-<h1 id="Lighthouse-Performance-Index"><a href="#Lighthouse-Performance-Index" class="headerlink" title="Lighthouse Performance Index"></a>Lighthouse Performance Index</h1><ol>
+<h1 id="lighthouse-advices"><a href="#lighthouse-advices" class="headerlink" title="lighthouse advices"></a>lighthouse advices</h1><ol>
 <li><p>Eliminate render-blocking resources</p>
 <p>  <a target="_blank" rel="noopener" href="https://web.dev/render-blocking-resources/?utm_source=lighthouse&utm_medium=devtools">Eliminate render-blocking resources (web.dev)</a> <code>FCP</code>, <code>LCP</code></p>
 </li>
@@ -117,20 +117,44 @@
 </li>
 </ol>
 <p>some ideas are inferred or epitomized based upon the book <em>high performance website building</em> (old but classical) </p>
-<h1 id="Sum-up"><a href="#Sum-up" class="headerlink" title="Sum-up"></a>Sum-up</h1><p>reorganize the thoughts based upon the linear description of <strong>http connection</strong>, <strong>rendering pipeline</strong>. It’s more desirable to excavate the intrinsic sight to have sensible thoughts.</p>
-<h2 id="http-connection-network-relevant"><a href="#http-connection-network-relevant" class="headerlink" title="http connection (network relevant)"></a>http connection (network relevant)</h2><ol>
+<h1 id="particular-strategies-to-cope-with-performance"><a href="#particular-strategies-to-cope-with-performance" class="headerlink" title="particular strategies to cope with performance"></a>particular strategies to cope with performance</h1><p>reorganize the thoughts based upon the linear description of <strong>http connection</strong>, <strong>rendering pipeline</strong>. It’s more desirable to excavate the intrinsic sight to have sensible thoughts.</p>
+<h2 id="loading-performance"><a href="#loading-performance" class="headerlink" title="loading performance"></a>loading performance</h2><ol>
 <li><p>http protocol</p>
 </li>
 <li><p>cache (eliminate requests)</p>
+<p> <a target="_blank" rel="noopener" href="https://calendar.perfplanet.com/2016/a-tale-of-four-caches/">Web Performance Calendar » A Tale of Four Caches (perfplanet.com)</a> </p>
 </li>
 <li><p>minify sizes of JavaScript/CSS (critical rendering path)</p>
 <p> @see also: webpack code splitting,  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Performance/Critical_rendering_path">关键渲染路径 - Web 性能 | MDN (mozilla.org)</a> </p>
 </li>
+<li><p>Render-blocking resources</p>
+<p> <a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/">Eliminate render-blocking resources - Chrome Developers</a> </p>
+</li>
+<li><p>Compression</p>
+<p> @keywords: encoding, picture format</p>
+<p> <a target="_blank" rel="noopener" href="https://web.dev/optimizing-content-efficiency-optimize-encoding-and-transfer/">Optimizing Encoding and Transfer Size of Text-Based Assets (web.dev)</a> </p>
+<p> <a target="_blank" rel="noopener" href="https://web.dev/replace-gifs-with-videos/">Replace animated GIFs with video for faster page loads (web.dev)</a></p>
+</li>
 <li><p>lazy loading</p>
-<p> @see also: <code>font-display</code>, <code>&lt;img loading&gt;</code>, <code>&lt;link media/preload&gt;</code>, <code>&lt;script async&gt;</code>, <code>intersection observer</code>, <code>figure source media</code></p>
+<p> <a target="_blank" rel="noopener" href="https://web.dev/browser-level-image-lazy-loading/">Browser-level image lazy-loading for the web</a></p>
+<p> <a target="_blank" rel="noopener" href="https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf">Preload, Prefetch And Priorities in Chrome | by Addy Osmani | reloading | Medium</a>  </p>
+<p> @see also: <code>font-display</code>, <code>&lt;img loading&gt;</code>, <code>&lt;link media/preload&gt;</code>, <code>&lt;script async&gt;</code>, <code>intersection observer</code>, <code>picture source media</code></p>
+</li>
+<li><p>dynamic import</p>
+<p> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Imports">import - JavaScript | MDN (mozilla.org)</a></p>
+</li>
+<li><p>Caching</p>
+<p> <a target="_blank" rel="noopener" href="https://web.dev/http-cache/">使用 HTTP 缓存避免不必要的网络请求 (web.dev)</a></p>
+</li>
+<li><p>Code splitting</p>
+<p> <a target="_blank" rel="noopener" href="https://www.creativebloq.com/how-to/all-you-need-to-know-about-javascript-code-splitting">您需要了解的有关 JavaScript 代码拆分的所有信息|创意布洛克 (creativebloq.com)</a> </p>
+<p> @keywords: dynamic code splitting, Vendor code splitting, entry-point code splitting</p>
+</li>
+<li><p>PRPL Pattern (some ideologies)</p>
+<p><a target="_blank" rel="noopener" href="https://web.dev/apply-instant-loading-with-prpl/">使用 PRPL 模式实现即时加载 (web.dev)</a> </p>
 </li>
 </ol>
-<h2 id="rendering-pipeline"><a href="#rendering-pipeline" class="headerlink" title="rendering pipeline"></a>rendering pipeline</h2><ol>
+<h2 id="rendering-performance"><a href="#rendering-performance" class="headerlink" title="rendering performance"></a>rendering performance</h2><ol>
 <li><p>eliminate render-blocking resources (DOM/CSS tree building)</p>
 <p> @see also: webpack code splitting</p>
 <p> @see also: async CSS loading, <code>@import</code>, <code>preload</code>, <code>prefetch</code>, <code>alternate</code>, <code>media</code>, <code>disabled</code></p>
@@ -138,7 +162,10 @@
 <p> @see also:  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload#scripting_and_preloads">Link types: preload - HTML: HyperText Markup Language | MDN (mozilla.org)</a> </p>
 </li>
 <li><p>utilizing composition procedure</p>
+<p> <a target="_blank" rel="noopener" href="https://web.dev/rendering-performance/#the_pixel_pipeline">Rendering Performance (web.dev)</a> </p>
 <p> @see also:  Avoid non-composited animations, passive event listeners,  Avoid an excessive DOM size</p>
+</li>
+<li><p>the usage of <code>requestAnimationFrame</code></p>
 </li>
 </ol>
 <h2 id="particular-API-to-evaluate-the-performance"><a href="#particular-API-to-evaluate-the-performance" class="headerlink" title="particular API to evaluate the performance"></a>particular API to evaluate the performance</h2><p>@keyword: <code>lighthouse</code>, <code>puppeteer</code>, <code>performance API</code></p>
